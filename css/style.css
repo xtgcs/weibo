@@ -411,6 +411,10 @@ span.emotion:hover{background-position:2px -28px}
     display: inline-block;
     border-right: 1px solid #ccc;
 }
+.content-bottom ul li .icon_box:hover
+{
+    color:coral;
+}
 .content-bottom ul li .line
 {
     height: 20px;
