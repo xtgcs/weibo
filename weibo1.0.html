@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿腾讯微博</title>
+</head>
+<link rel="stylesheet" href="css/bootstrap.min.css" media="screen">
+<link href="css/reset.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/qq.js"></script>
+<script src="js/jquery.qqFace.js"></script>
+<script src="js/jquery-browser.js"></script>
+
+<style>
+.nav-left
+{
+    width: 150px;
+    height: 800px;
+    float: left;
+    position: fixed;
+    top:15px;
+   // border: 1px solid #ccc;
+}
+    .nav-left .left-top
+    {
+        height: 160px;
+        width: 150px;
+        font-size: 15px;
+        font-weight: bold;
+      //  border: 1px solid #ccc;
+
+    }
+    .left-top ul li,.left-bottom ul li
+    {
+        height: 35px;
+        padding-left: 15px;
+        line-height: 35px;
+      //  border: 1px solid #ccc;
+    }
+    .left-top
+    {
+        border-bottom: 1px solid #fff;
+    }
+    .left-top ul li a,.left-bottom ul li a
+    {
+        color:#fff;
+    }
+    .left-top ul li:hover,.left-bottom ul li:hover
+    {
+        background-color: rgba(250,250,250,0.3);
+    }
+    .left-top ul li:nth-child(1),.left-bottom ul li:nth-child(1)
+    {
+        margin-top: 10px;
+    }
+
+    /*右侧样式开始*/
+    .nav-right
+    {
+        width: 240px;
+        height: auto;
+        position: absolute;
+        top:50px;
+        left: 750px;
+        margin-left: 8px;
+      //  border: 1px solid #ccc;
+    }
+    .nav-right .right-one
+    {
+        width:230px;
+        height: 165px;
+        margin-top: 10px;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+    /*用户信息样式开始*/
+    .right-one-top
+    {
+        width: 230px;
+        height:77px;
+        background: url("image/weibo.jpg");
+    }
+   .right-one-bottom
+   {
+       width: 230px;
+       height:100px;
+       background-color: #fff;
+   }
+    .right-one-bottom .name
+    {
+        width: 180px;
+        height: 25px;
+        padding-top: 10px;
+        padding-left: 50px;
+    }
+    .right-one-bottom .name a
+    {
+        width: 20px;
+        height: 15px;
+        margin-top: 5px;
+        display: inline-block;
+       // border: 1px solid #ccc;
+    }
+    .right-one-bottom .name img
+    {
+       width: 20px;
+        height: 18px;
+    }
+    .right-one-bottom .name a:nth-child(1)
+    {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        width: 80px;
+        height: 20px;
+        display: inline-block;
+        text-decoration: none;
+      //  border: 1px solid #ccc;
+    }
+    .right-one-bottom .data
+    {
+        width: 230px;
+        height: 50px;
+       // border: 1px solid #ccc;
+    }
+    .right-one-bottom .data ul{
+        width: 156px;
+        height: 40px;
+        margin: 5px auto;
+    }
+    .right-one-bottom .data ul li
+    {
+        float: left;
+        width: 50px;
+        height: 40px;
+      //  border: 1px solid #ccc;
+    }
+    .right-one-bottom .data ul li:nth-child(2)
+    {
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+    }
+    .right-one-bottom .data ul li a
+    {
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        width: 50px;
+        height: 20px;
+        color: grey;
+    }
+    .right-one-bottom .data ul li a:first-child
+    {
+        font-weight: 900;
+        font-size: 16px;
+        color: #333;
+    }
+    .right-one-bottom .data ul li a:first-child:hover, .right-one-bottom .name a:nth-child(1):hover
+    {
+        color: coral;
+    }
+
+    .Head-Portraits
+    {
+        position: relative;
+        top:45px;
+        left: 90px;
+        width: 60px;
+        height:60px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+    }
+    .Head-Portraits img
+    {
+        width: 60px;
+        height:60px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+    }
+    /*用户信息样式结束*/
+    /*微博电影热议榜样式开始*/
+    .right-second
+    {
+        width: 230px;
+        height: 280px;
+        margin-top: 135px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+    .right-second-top
+    {
+        width: 230px;
+        height: 40px;
+    }
+    .right-second-top a
+    {
+        font-weight: 900;
+        color: #333;
+        width: 210px;
+        height: 20px;
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+    }
+    .right-second-body ul
+    {
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+    }
+    .right-second-body ul li
+    {
+        width: 230px;
+        height: 40px;
+        margin-top: -20px;
+        //border: 1px solid red;
+    }
+    .right-second-body ul li:first-child
+    {
+     margin-top: 0;
+    }
+    .right-second-body .pic_box
+    {
+       display: none;
+        float: left;
+        margin-top: 5px;
+    }
+   .right-second-body .pic
+   {
+       width: 72px;
+       height: 96px;
+   }
+
+   .right-second-body .info_box
+   {
+       float: left;
+       width: 136px;
+       height: 85px;
+       padding: 5px;
+       display: none;
+       margin-top: 5px;
+   }
+   .right-second-body .text_box a
+   {
+       position: static;
+       font-size: 14px;
+       font-weight: bold;
+       color: #333;
+       width: 136px;
+       height: 20px;
+       text-decoration: none;
+   }
+    .right-second-body .text_box .icon_num_yellow
+    {
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        line-height: 15px;
+        font-weight: bold;
+        font-style: normal;
+        color: #fff;
+        display: inline-block;
+        background-color: red;
+        border-radius: 50%;
+    }
+    .info_box .subtitle
+    {
+        color: grey;
+        width: 136px;
+        height: 15px;
+        padding: 3px;
+    }
+    .info_box .actor
+    {
+        overflow: hidden;
+    }
+    .info_box .subtext
+    {
+        width: 136px;
+        height: 15px;
+        text-align: right;
+        color: grey;
+        padding: 5px;
+        font-weight: 600;
+    }
+     .right-second-body .txt
+     {
+         padding: 15px;
+         display: block;
+         width: 200px;
+         height: 20px;
+    }
+    .right-second-body .text_box .rg
+    {
+        display: inline-block;
+        margin-right:20px;
+        float: right;
+    }
+    .clear
+    {
+       clear: both;
+    }
+    .right-second-body .show
+    {
+        display: block;
+    }
+    .right-second-body .height
+    {
+        height: 95px;
+    }
+    .right-second-body .hide
+    {
+        display: none;
+    }
+    .right-second-bottom a
+    {
+        width: 230px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        text-decoration: none;
+        color: grey;
+        display: block;
+    }
+/*微博电影热议榜样式结束*/
+/*微博广告样式开始*/
+   .right-three
+   {
+       width: 230px;
+       height: 280px;
+       margin-top: 8px;
+       background-color: #fff;
+       border: 1px solid #ccc;
+   }
+   .right-three .ad
+   {
+       width: 200px;
+       height: 250px;
+       margin: 15px;
+       border: 1px solid #ccc;
+   }
+   .right-three .ad img
+   {
+       width: 200px;
+       height: 250px;
+   }
+/*微博广告样式结束*/
+</style>
+
+<script>
+window.onload = function(){
+    var ul= document.getElementsByTagName('ul')[0];
+    var lis=document.getElementsByTagName('li')[1];
+  //给每个li标签绑定删除事件
+    for(var i=0;i<lis.length;i++){
+
+        lis[i].onmouseover=function(){
+            var li=this;
+           var btn = li.getElementsByTagName('a')[1];
+            btn.style.display='block';
+            btn.onclick=function(){
+                ul.removeChild(li);
+            }
+        };
+        lis[i].onmouseout=function(){
+            var li=this;
+            var btn = li.getElementsByTagName('a')[1];
+            btn.style.display='none';
+        }
+    }
+//输入字数统计
+    var text=document.getElementById('saytext');
+    var btn=document.getElementById('btn');
+    var num=document.getElementById('num');
+    var words=document.getElementById('words');
+    var vip=document.getElementById('vip');
+    var article=document.getElementById('article');
+    var time = document.getElementById('time');
+    onkeyup=function(){
+       var sum= 140-text.value.length;
+       num.innerHTML=sum;
+   };
+    //vip和剩余字数切换
+    text.onfocus=function(){
+        words.style.display='block';
+        vip.style.display='none';
+    };
+    //点击按钮发布微博
+    btn.onclick=function(){
+
+        //获取发布时间
+        var d_days,d_hours,d_minutes,d_s;
+
+        var date = new Date()/1000;
+        //获取系统当前时间
+        function getTime(){
+            var now = new Date()/1000;
+            var d=parseInt(now)-parseInt(date);
+            d_days = parseInt(d/86400);
+            d_hours = parseInt(d/3600);
+            d_minutes = parseInt(d/60);
+            d_s = parseInt(d);
+            if(d_days>0 && d_days<4){
+                time.innerHTML = d_days+"天前";
+            }else if(d_days<=0 && d_hours>0){
+                time.innerHTML = d_hours+"小时前";
+            }else if(d_hours<=0 && d_minutes>0){
+                time.innerHTML = d_minutes+"分钟前";
+            }else if(d_minutes<=0 && d_s>0){
+                time.innerHTML = d_s+"秒前";
+            }else if(d_s==0){
+                time.innerHTML = "刚刚";
+            }
+            else{
+                var s = new Date(date*1000);
+                time.innerHTML = (s.getMonth()+1)+"月"+s.getDate()+"日";
+            }
+            setInterval(getTime,10000);
+        }
+         getTime();
+        //将微博内容写入展示框
+       article.innerHTML=text.value;
+    }
+
+   //微博热议榜
+    var film = document.getElementById('film');
+    var oli = film.getElementsByTagName('li');
+    var show=film.getElementsByClassName('show');
+    var show1 = document.getElementById('show1');
+    var show2 = document.getElementById('show2');
+    var txt = document.getElementsByClassName('txt');
+    for(var i=0;i<oli.length;i++){
+        oli[i].index=i;
+        oli[i].onmousemove=function(){
+           // showTag(this.index);
+        };
+        oli[i].onmousemout=function(){
+            //hideTag(this.index);
+        }
+    }
+    function showTag(a){
+        index=a;
+        console.log(index);
+        show1.addClass('show');
+        show2.addClass('show');
+        txt[index].removeClass("hide");
+        oli[index].style.height='105px';
+    }
+    function hideTag(a){
+        index=a;
+        console.log(index);
+        show1.style.display='none';
+        show2.style.display='none';
+        txt[index].style.display='block';
+        oli[index].style.height='50px';
+    }
+
+}
+</script>
+<body>
+<div class="title">
+    <div class="title-left">
+    <div class="left">
+        <img src="image/favicon.ico" style="border: 0">微博
+    </div>
+        <div class="right">
+            <input type="search" class="search">
+        </div>
+    </div>
+    <div class="title-right">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="image/ooopic_1459936980.ico">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="image/faxian.ico">
+                    <span>发现</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="image/youxi.ico">
+                    <span>游戏</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="image/honghu.ico">
+                    <span>单身狗窝</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="image/xinfeng.ico">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="image/shezhi.ico">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="image/xin.ico">
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="box">
+    <div class="nav-left">
+        <div class="left-top">
+            <ul>
+                <li>
+                    <a href="#">首页</a>
+                </li>
+                <li>
+                    <a href="#">消息</a>
+                </li>
+                <li>
+                    <a href="#">收藏</a>
+                </li>
+                <li>
+                    <a href="#">赞</a>
+                </li>
+            </ul>
+        </div>
+        <div class="left-bottom">
+            <ul>
+                <li>
+                    <a href="#">好友圈</a>
+                </li>
+                <li>
+                    <a href="#">群微博</a>
+                </li>
+                <li>
+                    <a href="#">特别关注</a>
+                </li>
+                <li>
+                    <a href="#">美女</a>
+                </li>
+                <li>
+                    <a href="#">微信公众号</a>
+                </li>
+                <li>
+                    <a href="#">情感</a>
+                </li>
+                <li>
+                    <a href="#">明星</a>
+                </li>
+                <li>
+                    <a href="#">老婆</a>
+                </li>
+                <li>
+                    <a href="#">名人明星</a>
+                </li>
+                <li>
+                    <a href="#">悄悄关注</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="top">
+            <div class="top-title">
+                <h2>有什么新鲜事想告诉大家？</h2>
+                <a href="#" id="vip" class="vip">会员可以发布超过140个字的微博啦，开通会员立即体验》</a>
+                <div id="words" class="words">
+                    <span>还可以输入</span>
+                    <i id="num">140</i>
+                    <span>个字</span>
+                </div>
+            </div>
+            <textarea id="saytext" name="saytext" class="text" ></textarea>
+            <div class="toolbar">
+                <ul>
+                    <li><a href="#">
+                        <p class="bqbox">
+                            <img src="image/f118.png" class="emotion" width="16px" height="16px">
+                            <span class="emotion">表情</span>
+                        </p>
+                    </a>
+                    </li>
+                    <li><a href="#">
+                        <img src="image/photo131.png" width="16px" height="15px">
+                        <span>图片</span>
+                    </a> </li>
+                    <li><a href="#">
+                        <img src="image/ooopic_1459932682.ico">
+                        <span>视频</span>
+                    </a> </li>
+                    <li><a href="#">
+                        <span>话题</span>
+                    </a></li>
+                    <li>
+                        <a href="#">
+                            <img src="image/ooopic_1459933046.ico">
+                            <span>头条文章</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            ...
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>公开</span>
+                            <img src="image/ooopic_1459933292.ico">
+                        </a>
+                    </li>
+                    <li>
+                        <button id="btn" class="btn">发布</button>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="tool">
+            <div class="tool-left">
+                <ul>
+                    <li>
+                        全部
+                    </li>
+                    <li>
+                        原创
+                    </li>
+                    <li>
+                        图片
+                    </li>
+                    <li>
+                        视频
+                    </li>
+                    <li>
+                        音乐
+                    </li>
+                </ul>
+            </div>
+            <div class="tool-right">
+                <input type="search" placeholder="搜索我关注的微博">
+            </div>
+        </div>
+        <div class="content">
+            <div class="list">
+                <ul>
+                    <li>
+                        <div class="left">
+                            <img src="image/3.jpg" width="50" height="50">
+                        </div>
+                        <div class="right">
+                            <div class="right-top">
+                                <a href="#">日久生情：</a>
+                                <img src="">
+                            </div>
+                            <div class="right-bottom">
+                                <a href="#">
+                                    <span id="time" class="time">07月05日</span>
+                                </a>
+                                <span class="from">来自</span>
+                                <a href="#">
+                                    <span class="xinlang">新浪微博</span>
+                                </a>
+                            </div>
+                            <div id="article" class="right-con">
+                                微博内容
+                            </div>
+                        </div>
+                        <div class="content-bottom">
+                            <ul>
+                                <li>
+                                    <span class="icon_box">
+                                    <img src="image/shoucang.png" class="icon">
+                                    <span class="line">已收藏</span>
+                                    </span>
+                                </li>
+                                <li>
+                                      <span class="icon_box">
+                                    <img src="image/fenxing.png" class="icon">
+                                    <span class="line">10</span>
+                                      </span>
+                                </li>
+                                <li>
+                                      <span class="icon_box">
+                                    <img src="image/pinglun.png" class="icon">
+                                    <span class="line">14</span>
+                                      </span>
+                                </li>
+                                <li>
+                                     <span class="icon_box">
+                                    <img src="image/dian.png" class="icon">
+                                    <span class="line">2</span>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="nav-right">
+        <div class="right-one">
+        <div class="right-one-top">
+
+        </div>
+            <div class="right-one-bottom">
+             <div class="name">
+                 <a href="#">单身狗窝</a>
+                 <a href="#">
+                     <img src="image/huiyuan.png">
+                 </a>
+                 <a href="#">
+                     <img src="image/xing.png">
+                 </a>
+             </div>
+                <div class="data">
+                    <ul>
+                        <li>
+                            <a href="#">72</a>
+                            <a href="#">关注</a>
+                        </li>
+                        <li>
+                            <a href="#">14</a>
+                            <a href="#">粉丝</a>
+                        </li>
+                        <li>
+                            <a href="#">24</a>
+                            <a href="#">微博</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="Head-Portraits">
+            <img src="image/na.jpg" width="60px" height="60px">
+        </div>
+        <div class="right-second">
+          <div class="right-second-top">
+              <a href="#">微博电影热议榜</a>
+          </div>
+            <div id="film" class="right-second-body">
+                <ul>
+                    <li class="height">
+                        <div id="show1" class="pic_box show">
+                            <a href="#">
+                                <img src="image/180871_vertical.jpg" class="pic" width="72px" height="96px">
+                            </a>
+                        </div>
+                        <div id="show2" class="info_box show">
+                            <div class="text_box">
+                               <a href="http://weibo.com/p/100120179088?from=pc_weibo_index" class="title" title="我的特工爷爷" target="_blank">
+                                   <i class="icon_num_yellow">1</i>
+                                   火锅英雄
+                               </a>
+                            </div>
+                                <div class="subtitle">导演：洪金宝</div>
+                                <div class="subtitle actor">
+                                    主演：洪金宝/刘德华/朱雨辰/李勤勤/冯嘉怡/胡军
+                                </div>
+                                <div class="subtext">95.6</div>
+                        </div>
+                        <div id="txt" class="text_box txt hide">
+                            <a href="http://weibo.com/p/100120179088?from=pc_weibo_index" class="title" title="我的特工爷爷" target="_blank">
+                                <i class="icon_num_yellow">1</i>
+                                火锅英雄
+                            </a>
+                            <div class="subtext rg">95.6</div>
+                        </div>
+
+                    </li>
+                    <br class="clear">
+                    <li>
+                        <div class="pic_box">
+                            <a href="#">
+                                <img src="image/177857_vertical.jpg" class="pic" width="72px" height="96px">
+                            </a>
+                        </div>
+                        <div class="info_box">
+                            <div class="text_box">
+                                <a href="http://weibo.com/p/100120179088?from=pc_weibo_index" class="title" title="我的特工爷爷" target="_blank">
+                                    <i class="icon_num_yellow">2</i>
+                                    谁在我上铺的兄弟
+                                </a>
+                            </div>
+                            <div class="subtitle">导演：洪金宝</div>
+                            <div class="subtitle actor">
+                                主演：洪金宝/刘德华/朱雨辰/李勤勤/冯嘉怡/胡军
+                            </div>
+                            <div class="subtext">95.6</div>
+
+                        </div>
+                        <div id="txt1" class="text_box txt ">
+                            <a href="http://weibo.com/p/100120179088?from=pc_weibo_index" class="title" title="我的特工爷爷" target="_blank">
+                                <i class="icon_num_yellow">2</i>
+                                谁在我上铺的兄弟
+                            </a>
+                            <div class="subtext rg">99.6</div>
+                        </div>
+                    </li>
+                    <br class="clear">
+                    <li>
+                        <div class="pic_box">
+                            <a href="#">
+                                <img src="image/179088_vertical.jpg" class="pic" width="72px" height="96px">
+                            </a>
+                        </div>
+                        <div class="info_box">
+                            <div class="text_box">
+                                <a href="http://weibo.com/p/100120179088?from=pc_weibo_index" class="title" title="我的特工爷爷" target="_blank">
+                                    <i class="icon_num_yellow">3</i>
+                                    我的特工爷爷
+                                </a>
+                            </div>
+                            <div class="subtitle">导演：洪金宝</div>
+                            <div class="subtitle actor">
+                                主演：洪金宝/刘德华/朱雨辰/李勤勤/冯嘉怡/胡军
+                            </div>
+                            <div class="subtext">95.6</div>
+
+                        </div>
+                        <div id="txt2" class="text_box txt">
+                            <a href="http://weibo.com/p/100120179088?from=pc_weibo_index" class="title" title="我的特工爷爷" target="_blank">
+                                <i class="icon_num_yellow">3</i>
+                                我的特工爷爷
+                            </a>
+                            <div class="subtext rg">95.6</div>
+                        </div>
+                    </li>
+                    <br class="clear">
+                </ul>
+            </div>
+            <div class="right-second-bottom">
+                <a href="#">查看更多></a>
+            </div>
+        </div>
+        <div class="right-three">
+         <div class="ad">
+             <a href="http://weibo.com/5762454887/DoOzzdbZK?from=page_1006065762454887_profile&wvr=6&mod=weibotime&type=comment">
+             <img src="image/e.jpg">
+             </a>
+         </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

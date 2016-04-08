@@ -1,0 +1,427 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+body
+{
+
+    background-color: #b4daf0;
+
+}
+/*头部菜单栏样式开始*/
+.title
+{
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    z-index:1000;
+    background-color: #fff;
+}
+.title-left
+{
+    width: 730px;
+    height: 50px;
+    float: left;
+}
+.title-left .left
+{
+    width: 125px;
+    height: 47px;
+    padding-left: 30px;
+    padding-top: 3px;
+    float: left;
+    font-size: 28px;
+    font-style: italic;
+    font-weight: bold;
+}
+.title-left .right
+{
+    height: 50px;
+    width: 500px;
+    margin:0;
+}
+.title-left .right .search
+{
+    width: 500px;
+    height: 25px;
+    margin-top: 10px;
+    padding: 0;
+    border-radius: 0;
+    border-color: red;
+}
+.title-right
+{
+    width: 600px;
+    height: 50px;
+//   border: 1px solid #ccc;
+    float: right;
+}
+
+.title-right ul li
+{
+    float: left;
+    width: 80px;
+    height: 50px;
+// border:1px solid #ccc;
+    text-align: center;
+}
+.title-right ul li a:hover
+{
+    color: coral;
+}
+.title-right ul li:nth-child(4)
+{
+    width: 105px;
+}
+.title-right ul li:nth-child(4) span
+{
+    width:75px;
+// border-right: 1px solid #ccc;
+}
+.title-right ul li:nth-child(5) img,.title-right ul li:nth-child(6) img,.title-right ul li:nth-child(7) img
+{
+    margin-left:30px;
+}
+.title-right ul li img, .title-right ul li span
+{
+    height: 20px;
+    display:block;
+    float: left;
+    margin-top: 15px;
+
+//  border: 1px solid #ccc;
+}
+.title-right ul li img
+{
+    width: 20px;
+}
+.title-right ul li span
+{
+    width: 50px;
+    color: grey;
+
+}
+/*头部菜单栏样式结束*/
+.box
+{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 1000px;
+    height: 800px;
+    margin-left: 175px;
+    background-color:rgba(94,167,211,0.5);
+   // border: 1px solid red;
+}
+.wrap
+{
+    width: 600px;
+    height: 800px;
+    border-radius: 5px;
+    position: relative;
+    top:60px;
+    left:150px;
+}
+.top
+{
+    width: 600px;
+    height: 175px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid transparent;
+}
+.top-title
+{
+    width: 580px;
+    height: 21px;
+    margin:10px;
+}
+.top .top-title h2
+{
+    color: #1b7fb6;
+    float: left;
+    width: 220px;
+    height: 21px;
+    font-size: 18px;
+    line-height: 21px;
+    overflow: hidden;
+}
+.top-title .vip
+{
+    font-size: 12px;
+    color: #eb7350;
+    width: 300px;
+    height: 15px;
+    text-decoration: none;
+    margin-left: 40px;
+    overflow: hidden;
+}
+.text
+{
+    width: 580px;
+    height: 80px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px auto;
+    display: block;
+}
+.words
+{
+    width: 150px;
+    height: 21px;
+    float: right;
+    text-align: right;
+    display: none;
+}
+.words span
+{
+    display: inline-block;
+    height: 21px;
+    font-size: 12px;
+    color: grey;
+}
+.words i
+{
+    font-size: 18px;
+    font-weight: bold;
+    font-style: normal;
+    color: #ccc;
+    line-height: 21px;
+    display: inline-block;
+}
+.toolbar
+{
+    width: 580px;
+    height: 40px;
+    margin: 0 auto;
+}
+.toolbar ul li{
+    list-style: none;
+    width:70px;
+    height: 40px;
+    float: left;
+    text-align: center;
+    font-size: 10px;
+    color:#333;
+    line-height: 40px;
+}
+.toolbar ul li .bqbox{
+    width: 70px;
+    height: 40px;
+    display: block;
+    margin-top: 0;
+}
+.toolbar ul li span{
+    padding-left: 0;
+    line-height: 20px;
+    width: 30px;
+    height: 20px;
+    display: block;
+    float: left;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.toolbar ul li img{
+    width: 25px;
+    height: 20px;
+    display: block;
+    float: left;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.toolbar ul li:nth-child(5){
+    width: 100px;
+}
+.toolbar ul li:nth-child(5) span{
+    width: 60px;
+}
+.toolbar ul li:nth-child(6){
+    width: 40px;
+}
+.toolbar ul li:nth-child(7) img{
+    width: 15px;
+}
+.toolbar ul li .btn
+{
+    width: 70px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: yellow;
+    font-size: 14px;
+    padding: 0;
+    background: #d59392;
+    font-weight: 300;
+}
+/*qq表情插件样式*/
+.toolbar p{height:28px; line-height:28px; position:relative; margin-top:10px;}
+span.emotion{width:42px; height:20px; background:url(http://www.16code.com/cache/demos/user-say/img/icon.gif) no-repeat 2px 2px; padding-left:20px; cursor:pointer}
+span.emotion:hover{background-position:2px -28px}
+.qqFace{margin-top:4px;background:#fff;padding:2px;border:1px #dfe6f6 solid;}
+.qqFace table td{padding:0;}
+.qqFace table td img{cursor:pointer;border:1px #fff solid;}
+.qqFace table td img:hover{border:1px #0066cc solid;}
+
+/*工具栏样式*/
+.tool
+{
+    width: 600px;
+    height: 40px;
+    border: 1px solid #ccc;
+    margin: 10px auto;
+    background-color: #fff;
+}
+.tool .tool-left
+{
+    width: 350px;
+    height: 35px;
+    float: left;
+}
+.tool .tool-left li
+{
+    list-style: none;
+    float: left;
+    width: 60px;
+    height: 35px;
+    margin-left: 10px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 10px;
+    color:grey;
+}
+.tool .tool-right
+{
+    width: 170px;
+    height: 35px;
+    margin-left: 70px;
+    float: left;
+}
+.tool-right input{
+    width: 150px;
+    height: 15px;
+    margin: 7px 5px ;
+}
+.content
+{
+    background-color: #fff;
+    height: 250px;
+}
+.list
+{
+    width: 600px;
+    height: 250px;
+    border: 1px solid transparent;
+}
+.list ul
+{
+    width: 600px;
+    height: auto;
+    list-style:none ;
+    margin: 20px auto;
+}
+.list ul li
+{
+    height: 200px;
+
+}
+.left
+{
+    float: left;
+    height: 180px;
+    margin-left: 20px;
+}
+.left img
+{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.right
+{
+    float: left;
+    height: 180px;
+    width: 500px;
+    margin-left: 10px;
+//   border: 1px solid #ccc;
+
+}
+.right .right-top a
+{
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+}
+.right .right-top a:hover{
+    color: coral;
+}
+.right .right-bottom
+{
+    margin-top: 8px;
+    width: 380px;
+
+}
+.right .right-bottom .time,.right .right-bottom .xinlang
+{
+    cursor: pointer;
+    color: grey;
+    font-size: 10px;
+    text-decoration: none;
+}
+.right .right-bottom .time:hover,.right .right-bottom .xinlang:hover
+{
+    color: coral;
+}
+.right .right-con
+{
+    width: 100%;
+    height: 125px;
+    margin-top: 5px;
+   //border: 1px solid #ccc;
+}
+.right-bottom .btn
+{
+    float: right;
+    display: none;
+    text-decoration: none;
+    color: #555;
+}
+.content-bottom
+{
+    width: 600px;
+    height: 40px;
+    clear: both;
+}
+.content-bottom ul li
+{
+    list-style: none;
+    float: left;
+    width: 150px;
+    border-top: 1px solid #ccc;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+}
+.content-bottom ul li .icon_box
+{
+    height: 20px;
+    width: 149px;
+    margin-top: 10px;
+    text-align: center;
+    display: inline-block;
+    border-right: 1px solid #ccc;
+}
+.content-bottom ul li .line
+{
+    height: 20px;
+    width: 50px;
+    text-align: center;
+    display: inline-block;
+}
+
+.content-bottom li .icon
+{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
